@@ -19,4 +19,13 @@ public class GlobalExceptionHandler {
                 .build();
         return ResponseEntity.badRequest().body(error);
     }
+
+    @ExceptionHandler(InsufficientTrainersException.class)
+    public ResponseEntity<Error> insufficientTrainersExceptionHandler(InsufficientTrainersException exception) {
+        Error error = Error.builder()
+                .status(exception.getHttpStatus().value())
+                .message(exception.getMessage())
+                .build();
+        return ResponseEntity.badRequest().body(error);
+    }
 }
