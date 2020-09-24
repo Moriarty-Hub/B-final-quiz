@@ -62,4 +62,8 @@ public class TrainerService {
                 .collect(Collectors.toList());
     }
 
+    public Trainer addTrainer(Trainer trainer) {
+        return trainerRepository.save(trainer);
+    }
+
 }

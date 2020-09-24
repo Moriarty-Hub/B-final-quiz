@@ -2,12 +2,11 @@ package com.example.demo.controller;
 
 import com.example.demo.entity.Trainer;
 import com.example.demo.service.TrainerService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -23,5 +22,10 @@ public class TrainerController {
     @GetMapping("/trainers")
     public ResponseEntity<List<Trainer>> findAllTraineesByGroupedCondition(@RequestParam(name = "grouped") Boolean isGrouped) {
         return ResponseEntity.ok(trainerService.findAllTrainersByGroupedCondition(isGrouped));
+    }
+
+    @PostMapping("/trainers")
+    public ResponseEntity<Trainer> addTrainee(@RequestBody @Valid Trainer trainer) {
+        return new ResponseEntity<>(trainerService.addTrainer(trainer), HttpStatus.CREATED);
     }
 }
