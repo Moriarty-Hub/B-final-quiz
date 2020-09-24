@@ -1,16 +1,15 @@
 package com.example.demo.repository;
 
-import com.example.demo.entity.Trainee;
+import com.example.demo.entity.GroupInfo;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public interface TraineeRepository extends CrudRepository<Trainee, Long> {
+public interface GroupInfoRepository extends CrudRepository<GroupInfo, Long> {
 
     @Override
-    List<Trainee> findAll();
+    List<GroupInfo> findAll();
 
-    List<Trainee> findTraineesByGroupId(Long groupId);
 }

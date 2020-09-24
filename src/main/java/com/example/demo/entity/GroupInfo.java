@@ -5,16 +5,17 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
+import javax.persistence.*;
 
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Group {
+@Entity(name = "group_info")
+public class GroupInfo {
 
-    private GroupInfo groupInfo;
-    private List<Trainee> traineeList;
-    private List<Trainer> trainerList;
+    @Id
+    private Long id;
+    private String name;
 
 }

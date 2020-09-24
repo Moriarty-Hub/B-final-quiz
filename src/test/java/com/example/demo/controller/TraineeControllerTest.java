@@ -126,6 +126,5 @@ public class TraineeControllerTest {
                     .andExpect(jsonPath("$.status", is(HttpStatus.BAD_REQUEST.value())))
                     .andExpect(jsonPath("$.message", is("The zoom id cannot be null")));
         }
-
     }
 }
