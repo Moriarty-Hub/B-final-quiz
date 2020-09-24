@@ -61,4 +61,8 @@ public class TraineeService {
                 .filter(trainee -> !Objects.isNull(trainee.getGroupId()))
                 .collect(Collectors.toList());
     }
+
+    public Trainee addTrainee(Trainee trainee) {
+        return traineeRepository.save(trainee);
+    }
 }
