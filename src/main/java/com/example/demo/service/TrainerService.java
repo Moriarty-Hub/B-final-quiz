@@ -12,13 +12,15 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 
 @Service
 public class TrainerService {
 
-    private TrainerRepository trainerRepository;
+    private final TrainerRepository trainerRepository;
 
     private static final String PATH_OF_TRAINEE_DATA_FILE = "src/main/resources/trainer.json";
 
@@ -47,6 +49,17 @@ public class TrainerService {
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
+    }
+
+    public List<Trainer> findAllTrainersByGroupedCondition(Boolean isGrouped) {
+        if (!isGrouped) {
+            return trainerRepository.findAll().stream()
+                    .filter(trainer -> Objects.isNull(trainer.getGroupId()))
+                    .collect(Collectors.toList());
+        }
+        return trainerRepository.findAll().stream()
+                .filter(trainer -> !Objects.isNull(trainer.getGroupId()))
+                .collect(Collectors.toList());
     }
 
 }
