@@ -29,6 +29,7 @@ public class TraineeService {
 
     }
 
+    //TODO GTB：读取文件的操作，可以放在utils
     private void prepareDataForTraineeRepository() {
         ObjectMapper objectMapper = new ObjectMapper();
         File dataFileOfTrainee = new File(PATH_OF_TRAINEE_DATA_FILE);

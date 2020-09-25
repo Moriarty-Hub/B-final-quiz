@@ -1,5 +1,6 @@
 spring:
   datasource:
+    //TODO GTB：需要加 "driver-class-name: com.mysql.jdbc.Driver"
     url: jdbc:mysql://localhost:3306/quiz?useUnicode=true&characterEncoding=UTF8&serverTimezone=UTC
     username: root
     password: root

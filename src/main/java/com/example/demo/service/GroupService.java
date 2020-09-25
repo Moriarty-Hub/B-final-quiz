@@ -42,14 +42,16 @@ public class GroupService {
         return groupList;
     }
 
+    //TODO GTB：这个方法太长了，需要分模块抽方法重构
     public List<Group> autoGrouping() {
-
+        //TODO GTB：Magic Number 2
         if (trainerRepository.count() < 2) {
             throw new InsufficientTrainersException();
         }
 
         int numberOfGroup = Long.valueOf(trainerRepository.count() / NUMBER_OF_TRAINERS_OF_EACH_GROUP).intValue();
         for (int i = 1; i < numberOfGroup + 1; i++) {
+            //TODO GTB：变量名需要合理一些，比如说groupId之类，比较表意的
             groupInfoRepository.save(GroupInfo.builder().id((long) i).name(i + SUFFIX_OF_GROUP_NAME).build());
         }
 

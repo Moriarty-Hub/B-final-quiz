@@ -51,6 +51,7 @@ public class TrainerService {
         }
     }
 
+    //TODO GTB：这里只需要查一次库，过滤操作再分条件来。抽取成两个方法。
     public List<Trainer> findAllTrainersByGroupedCondition(Boolean isGrouped) {
         if (!isGrouped) {
             return trainerRepository.findAll().stream()

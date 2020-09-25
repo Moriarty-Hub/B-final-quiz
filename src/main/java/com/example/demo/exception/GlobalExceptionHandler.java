@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import java.util.Objects;
 
+//TODO GTB：少了处理404的Exception
 @ControllerAdvice
 public class GlobalExceptionHandler {
 

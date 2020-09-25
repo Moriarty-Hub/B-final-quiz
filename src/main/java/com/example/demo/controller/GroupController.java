@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+//TODO GTB：缺少修改组名的接口
 @RestController
 public class GroupController {
 
@@ -19,6 +20,7 @@ public class GroupController {
     }
 
     @GetMapping("/groups")
+    //TODO GTB：如果没有定制化的返回需求，可以省略ResponseEntity
     public ResponseEntity<List<Group>> getAllGroups() {
         return ResponseEntity.ok(groupService.getAllGroups());
     }
